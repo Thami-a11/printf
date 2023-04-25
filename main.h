@@ -19,7 +19,7 @@ char *itoa(long int, int);
 
 int print_unsigned(va_list);
 int print_string(va_list);
-int char_print(va_list);
+int print_char(va_list);
 int print_integer(va_list);
 
 /**
