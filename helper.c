@@ -48,7 +48,8 @@ int format_helper(const char *s, va_list args, int *i)
 {
 	int strSize, n, nFormats;
 
-	format fs[] = {{'s', print_string}, {'c', char_print}};
+	format fs[] = {{'s', print_string}, {'c', char_print},
+			{'d', print_integer}, {'i', print_integer}};
 
 	*i = *i + 1;
 

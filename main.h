@@ -13,8 +13,11 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 
 int print(char *);
+
+int print_unsigned(va_list);
 int print_string(va_list);
 int char_print(va_list);
+int print_integer(va_list);
 
 /**
  * struct _format - Typedef struct
