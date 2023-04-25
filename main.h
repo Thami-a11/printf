@@ -1,9 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdarg.h>
-
 
 int helper(const char *, va_list);
 int format_helper(const char *, va_list, int *);
