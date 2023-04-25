@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int _strlen(const char *);
 
 int helper(const char *, va_list);
 int format_helper(const char *, va_list, int *);
@@ -14,8 +13,9 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int buffer(char);
 
-
+int _strlen(const char *);
 int print(char *);
+char *itoa(long int, int);
 
 int print_unsigned(va_list);
 int print_string(va_list);
