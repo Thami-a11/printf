@@ -1,33 +1,36 @@
 #include "main.h"
 
 /**
- * _printf - prints a string
- * @format:format string
+ * helper - Format helper
+ * @s: string format
+ * @args: arguments
  *
- * Return: number of printed string
-**/
+ * Return: string size
+ **/
 
-int _printf(const char *format, ...)
+int helper(const char *s, va_list args)
 {
-	int s;
+        int n, i, x;
 
-	va_list args;
+        n = 0;
 
-	if (format == NULL)
-		return (-1);
+        for (i = 0; s[i] != 0; i++)
+        {
+                if (s[i] == '%')
+                {
+                        x = format_helper(s, args, &i);
 
-	s = _strlen(format);
+                        if (x == -1)
+                                return (-1);
 
-	if (s <= 0)
-		return (0);
+                        n += x;
+                        continue;
+                }
 
-	va_start(args, format);
+                _putchar(s[i]);
+                n = n + 1;
 
-	s = helper(format, args);
+	}
 
-	_putchar(-1);
-
-	va_end(args);
-
-	return (s);
+	return (n);
 }
