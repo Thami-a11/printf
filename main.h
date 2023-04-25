@@ -10,7 +10,10 @@ int helper(const char *, va_list);
 int format_helper(const char *, va_list, int *);
 
 int _printf(const char *format, ...);
+
 int _putchar(char c);
+int buffer(char);
+
 
 int print(char *);
 
