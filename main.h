@@ -12,4 +12,21 @@ int format_helper(const char *, va_list, int *);
 int _printf(const char *format, ...);
 int _putchar(char c);
 
+int print(char *);
+int print_string(va_list);
+int char_print(va_list);
+
+/**
+ * struct _format - Typedef struct
+ *
+ * @type: Format
+ * @f: function
+ **/
+
+typedef struct _format
+{
+	char type;
+	int (*f)(va_list);
+} format;
+
 #endif

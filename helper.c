@@ -46,9 +46,9 @@ int helper(const char *s, va_list args)
 
 int format_helper(const char *s, va_list args, int *i)
 {
-	int strSize, n, nFormat;
+	int strSize, n, nFormats;
 
-	f = formats[] = {{'s', print_string}, {'c', print_char}};
+	format fs[] = {{'s', print_string}, {'c', char_print}};
 
 	*i = *i + 1;
 
@@ -61,13 +61,13 @@ int format_helper(const char *s, va_list args, int *i)
 		return (1);
 	}
 
-	f = sizeof(f) / sizeof(f[0]);
+	nFormats = sizeof(fs) / sizeof(fs[0]);
 
-	for (strSize = n = 0; n < f; n++)
+	for (strSize = n = 0; n < nFormats; n++)
 	{
-		if (s[*i] == f[j].type)
+		if (s[*i] == fs[n].type)
 		{
-			strSize = f[j].f(list);
+			strSize = fs[n].f(args);
 			return (strSize);
 		}
 
