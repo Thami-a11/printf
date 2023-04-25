@@ -19,7 +19,9 @@ int _printf(const char *format, ...)
 	s = _strlen(format);
 
 	if (s <= 0)
+	{
 		return (0);
+	}
 
 	va_start(args, format);
 
