@@ -1,42 +1,33 @@
 #include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _printf - prints a string
+ * @format:format string
  *
- * Return: On success 1.
- * On error, -1 output
-*/
+ * Return: number of printed string
+**/
 
 int _printf(const char *format, ...)
 {
+	int s;
+
 	va_list args;
+
+	if (format == NULL)
+		return (-1);
+
+	s = _strlen(format);
+
+	if (s <= 0)
+		return (0);
 
 	va_start(args, format);
 
-	while(*format)
-	{
-		if(*format == '%')
-		{
-			format++;
-			
-			if(*format == 's')
-			{
-				char* str = va_arg(args, char*);
-				return(_putchar(str));
-			}
-			if(*format == 'c')
-			{
-				char c = (char) va_arg(args, int);
-				return(_putchar(c));
-			}
-		}
-		else
-		{
-			return(_putchar(*format));
-		}
-		format++;
-	}
+	s = helper(format, args);
+
+	_putchar(-1);
 
 	va_end(args);
+
+	return (s);
 }
